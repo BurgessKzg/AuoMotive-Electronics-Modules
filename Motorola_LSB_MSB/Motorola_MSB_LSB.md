@@ -69,6 +69,7 @@
 
 > &emsp;&emsp;在项目中遇到过CAN报文填充**信号**时，出现字节序出错的现象，大概总结有三种针对信号和CAN报文中数据域的映射方式：Intel、Motorola_MSB和Motorola_LSB。
 > &emsp;&emsp;在使用 CANdb++编辑器时发现，对于字节序的选择只有Intel和Motorola两种格式，通过查看之前的dbc文件，发现这里采用的是Motorola_LSB的方式。
+
 ![CANoeByteOrder](CANoeByteOrder.jpg)
 
 ## 2.1. 缩写
@@ -87,7 +88,9 @@
 - 信号值：0x5A5，二进制：010110100101b
 - 信号起始位：byte1的bit4，在报文中的索引是12
 - 信号长度：12bit
+
 ![Intel-A](Intel-A.jpg)
+
 ![Intel-B](Intel-B.jpg)
 
 ### 2.2.2. Motorola_LSB(大端)
@@ -95,15 +98,20 @@
 - 信号值：0x5A5，二进制：010110100101b
 - 信号起始位：byte1的bit4，在报文中的索引是12
 - 信号长度：12bit
+
 ![MotorolaLSB-A](MotorolaLSB-A.jpg)
+
 ![MotorolaLSB-B](MotorolaLSB-B.jpg)
+
 
 ### 2.2.3. Motorola_MSB(大端)
 
 - 信号值：0x5A5，二进制：010110100101b
 - 信号起始位：byte1的bit4，在报文中的索引是12
 - 信号长度：12bit
+
 ![MotorolaMSB-A](MotorolaMSB-A.jpg)
+
 ![MotorolaMSB-B](MotorolaMSB-B.jpg)
 
 # 3. 刚开始的猜想
@@ -115,7 +123,9 @@
 - 信号值：0x5A5，二进制：010110100101b
 - 信号起始位：byte1的bit4，在报文中的索引是12
 - 信号长度：12bit
+
 ![ErrorMSB-A](ErrorMSB-A.jpg)
+
 ![ErrorMSB-B](ErrorMSB-B.jpg)
 
 ## 3.1. Motorola_LSB(错误!)
@@ -123,7 +133,9 @@
 - 信号值：0x5A5，二进制：010110100101b
 - 信号起始位：byte1的bit4，在报文中的索引是12
 - 信号长度：12bit
+
 ![ErrorLSB-A](ErrorLSB-A.jpg)
+
 ![ErrorLSB-B](ErrorLSB-B.jpg)
 
 # 4. 总结
