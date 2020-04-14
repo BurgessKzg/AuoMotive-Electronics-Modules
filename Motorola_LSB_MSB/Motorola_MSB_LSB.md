@@ -1,4 +1,4 @@
-> &emsp;&emsp;声明：如果涉及侵权，请联系本人删除侵权内容。
+> &emsp;&emsp;声明：如果涉及侵权，请联系本人删除侵权内容。  
 > &emsp;&emsp;声明：本文由本人以以往工作经验为依据，总结而得，如果错误，欢迎指正，便于后人参考，少走弯路。
 
 > &emsp;&emsp;最近同事给了一份CAN通信矩阵，看到其中"Byte Order"(排列格式)一栏给出的是"Motorola Msb"时比较疑惑，查看相关资料并结合以往项目经验，总结此文。
@@ -67,7 +67,7 @@
 
 # 2. CAN信号映射
 
-> &emsp;&emsp;在项目中遇到过CAN报文填充**信号**时，出现字节序出错的现象，大概总结有三种针对信号和CAN报文中数据域的映射方式：Intel、Motorola_MSB和Motorola_LSB。
+> &emsp;&emsp;在项目中遇到过CAN报文填充**信号**时，出现字节序出错的现象，大概总结有三种针对信号和CAN报文中数据域的映射方式：Intel、Motorola_MSB和Motorola_LSB。  
 > &emsp;&emsp;在使用 CANdb++编辑器时发现，对于字节序的选择只有Intel和Motorola两种格式，通过查看之前的dbc文件，发现这里采用的是Motorola_LSB的方式。
 
 ![CANoeByteOrder](CANoeByteOrder.jpg)
