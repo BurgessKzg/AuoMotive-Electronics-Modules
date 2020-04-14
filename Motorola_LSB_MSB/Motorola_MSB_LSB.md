@@ -68,7 +68,7 @@
 # 2. CAN信号映射
 
 > &emsp;&emsp;在项目中遇到过CAN报文填充**信号**时，出现字节序出错的现象，大概总结有三种针对信号和CAN报文中数据域的映射方式：Intel、Motorola_MSB和Motorola_LSB。  
-> &emsp;&emsp;在使用 CANdb++编辑器时发现，对于字节序的选择只有Intel和Motorola两种格式，通过查看之前的dbc文件，发现这里采用的是Motorola_LSB的方式。
+> &emsp;&emsp;在使用 CANdb++编辑器时发现，对于字节序的选择只有Intel和Motorola两种格式(如下图)，通过查看之前的dbc文件，发现这里采用的是Motorola_LSB的方式。
 
 ![CANoeByteOrder](CANoeByteOrder.jpg)
 
@@ -140,11 +140,11 @@
 
 # 4. 总结
 
-> &emsp;&emsp;Motorola_LSB和Motorola_MSB的区别是某个信号起始位置确定的情况下，在报文中的映射空间不一样，映射顺序一样(低字节放在高字节，高字节放在低地址，位序都是从右到左是b0到b7)。
+> &emsp;&emsp;Motorola_LSB和Motorola_MSB的区别是某个信号起始位置确定的情况下，在报文中的映射空间不一样，映射顺序一样(低字节放在高字节，高字节放在低地址，位序都是从右到左是b0到b7)。  
 > &emsp;&emsp;而我刚开始的错误理解是，两者的在报文中的映射空间是一样的，映射顺序不一样。
 
 # 5. 备注
 
-- 本文中讲到的信号只会占用CAN报文的前三个字节，为了使文档看起来整洁，只保留了CAN报文的前四个字节的截图，不可误以为CAN报文只有4个字节。
+> - 本文中讲到的信号只会占用CAN报文的前三个字节，为了使文档看起来整洁，只保留了CAN报文的前四个字节的截图，不可误以为CAN报文只有4个字节。
 
 
