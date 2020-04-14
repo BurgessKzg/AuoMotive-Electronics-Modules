@@ -89,6 +89,26 @@
 - 信号起始位：byte1的bit4，在报文中的索引是12
 - 信号长度：12bit
 
+```C
+typedef struct{
+        Uint8 Byte0;
+        Uint8 Byte1;
+        Uint8 Byte2;
+        Uint8 Byte3;
+        Uint8 Byte4;
+        Uint8 Byte5;
+        Uint8 Byte6;
+        Uint8 Byte7;
+}IntelOrder;
+
+IntelOrder gstrMsg;
+Uint16 gusVal = 0x5A5;
+
+gstrMsg.Byte1 = (gstrMsg.Byte1 & 0x0F) | ((Uint8)(gusVal & 0x0F) << 4); 
+gstrMsg.Byte2 = (gstrMsg.Byte2 & 0xF0) | ((Uint8)(gusVal & 0xF0) >> 4); 
+gstrMsg.Byte2 = (gstrMsg.Byte2 & 0x0F) | ((Uint8)((gusVal >> 8) & 0x0F));    
+```
+
 ![Intel-A](Intel-A.jpg)
 
 ![Intel-B](Intel-B.jpg)
@@ -98,6 +118,25 @@
 - 信号值：0x5A5，二进制：010110100101b
 - 信号起始位：byte1的bit4，在报文中的索引是12
 - 信号长度：12bit
+
+```C
+typedef struct{
+        Uint8 Byte0;
+        Uint8 Byte1;
+        Uint8 Byte2;
+        Uint8 Byte3;
+        Uint8 Byte4;
+        Uint8 Byte5;
+        Uint8 Byte6;
+        Uint8 Byte7;
+}IntelOrder;
+
+IntelOrder gstrMsg;
+Uint16 gusVal = 0x5A5;
+
+gstrMsg.Byte0 = (Uint8)((gusVal >> 4) & 0xFF);
+gstrMsg.Byte1 = (gstrMsg.Byte1 & 0x0F) | ((Uint8)(gusVal << 4));
+```
 
 ![MotorolaLSB-A](MotorolaLSB-A.jpg)
 
@@ -109,6 +148,25 @@
 - 信号值：0x5A5，二进制：010110100101b
 - 信号起始位：byte1的bit4，在报文中的索引是12
 - 信号长度：12bit
+
+```C
+typedef struct{
+        Uint8 Byte0;
+        Uint8 Byte1;
+        Uint8 Byte2;
+        Uint8 Byte3;
+        Uint8 Byte4;
+        Uint8 Byte5;
+        Uint8 Byte6;
+        Uint8 Byte7;
+}IntelOrder;
+
+IntelOrder gstrMsg;
+Uint16 gusVal = 0x5A5;
+
+gstrMsg.Byte1 = (gstrMsg.Byte1 & 0xE0) | ((Uint8)((gusVal >> 7) & 0x1F));
+gstrMsg.Byte2 = (gstrMsg.Byte2 & 0xFE) | ((Uint8)(gusVal & 0x7F));
+```
 
 ![MotorolaMSB-A](MotorolaMSB-A.jpg)
 
